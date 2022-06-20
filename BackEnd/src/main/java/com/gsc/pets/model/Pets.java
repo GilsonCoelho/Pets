@@ -23,8 +23,12 @@ public class Pets {
 	private String nome;
 	private Porte porte;
 	private PetsStatus status;
+	@Column(columnDefinition = "date")
 	private Date dateNascimento;
-	
+
+	public Pets() {
+	}
+
 	public Pets(long id, String nome, Porte porte, PetsStatus status, Date dateNascimento) {
 		super();
 		this.id = id;
