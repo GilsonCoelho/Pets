@@ -1,10 +1,18 @@
 package com.gsc.pets.utis;
 
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+@Component
 public class PetsUtil {
-    public static String calcularIdade(Date data) {
-        Integer anos = 0;
-        Integer meses = 0;
-        Integer dias = 0;
+    public static List<Integer> calcularIdade(Date data) {
+        int anos = 0;
+        int meses = 0;
+        int dias = 0;
 
         Calendar dataAtual;
         Calendar dataNascimento;
@@ -40,7 +48,10 @@ public class PetsUtil {
                 meses = meses - 1;
             }
         }
-
-        return formatar(anos, meses, dias);
+        List<Integer> lista = new ArrayList<Integer>();
+        lista.add(anos);
+        lista.add(meses);
+        lista.add(dias);
+        return  lista;
     }
 }

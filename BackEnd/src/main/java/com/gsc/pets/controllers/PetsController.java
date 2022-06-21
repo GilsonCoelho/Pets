@@ -3,6 +3,7 @@ package com.gsc.pets.controllers;
 import java.text.ParseException;
 import java.util.List;
 
+import com.gsc.pets.DTO.IdadeDTO;
 import com.gsc.pets.DTO.PetsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,13 @@ public class PetsController {
 
 	@GetMapping("/list")
 	public ResponseEntity<List<Pets>> getPets(){
+
 		return ResponseEntity.ok(petsService.findAllPets());
+	}
+	@GetMapping("/list/idade")
+	public ResponseEntity<List<IdadeDTO>> getPetsIdade(){
+
+		return ResponseEntity.ok(petsService.findAllIdade());
 	}
 	@GetMapping("/ativos")
 	public ResponseEntity<List<Pets>> findAllAtivos(){
