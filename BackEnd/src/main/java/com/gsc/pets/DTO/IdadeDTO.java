@@ -1,19 +1,25 @@
 package com.gsc.pets.DTO;
 
+import com.gsc.pets.enums.PetsStatus;
+import com.gsc.pets.enums.Porte;
+
 public class IdadeDTO extends PetsDTO{
 
     private int ano;
     private int mes;
     private int dias;
 
-    public IdadeDTO() {
-    }
+    public IdadeDTO(){
 
+
+    }
     public IdadeDTO(int ano, int mes, int dias) {
         this.ano = ano;
         this.mes = mes;
         this.dias = dias;
     }
+
+
 
     public int getAno() {
         return ano;

@@ -8,19 +8,39 @@ public class PetsDTO {
 
     private long id;
     private String nome;
+
+    private String especie;
     private Porte porte;
     private PetsStatus status;
     private String dateNascimento;
 
+    private int ano;
+    private int mes;
+    private int dias;
+
     public PetsDTO() {
     }
 
-    public PetsDTO(long id, String nome, Porte porte, PetsStatus status, String dateNascimento) {
+    public PetsDTO(long id, String nome, String especie, Porte porte, PetsStatus status, String dateNascimento) {
         this.id = id;
         this.nome = nome;
+        this.especie = especie;
         this.porte = porte;
         this.status = status;
         this.dateNascimento = dateNascimento;
+    }
+
+    public PetsDTO(long id, String nome, String especie, Porte porte, PetsStatus status, String date, Integer ano, Integer mes, Integer dias) {
+        String text;
+        this.id = id;
+        this.nome = nome;
+        this.especie = especie;
+        this.porte = porte;
+        this.status = status;
+        this.dateNascimento = date;
+        this.ano = ano;
+        this.mes = mes;
+        this.dias = dias;
     }
 
     public long getId() {
@@ -37,6 +57,14 @@ public class PetsDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 
     public Porte getPorte() {
@@ -61,5 +89,43 @@ public class PetsDTO {
 
     public void setDateNascimento(String dateNascimento) {
         this.dateNascimento = dateNascimento;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getDias() {
+        return dias;
+    }
+
+    public void setDias(int dias) {
+        this.dias = dias;
+    }
+
+    @Override
+    public String toString() {
+        return "PetsDTO{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", especie='" + especie + '\'' +
+                ", porte=" + porte +
+                ", status=" + status +
+                ", ano=" + ano +
+                ", mes=" + mes +
+                ", dias=" + dias +
+                '}';
     }
 }

@@ -21,6 +21,8 @@ public class Pets {
 	private long id;
 	@Column(unique=true)
 	private String nome;
+
+	private String especie;
 	private Porte porte;
 	private PetsStatus status;
 	@Column(columnDefinition = "date")
@@ -29,10 +31,11 @@ public class Pets {
 	public Pets() {
 	}
 
-	public Pets(long id, String nome, Porte porte, PetsStatus status, Date dateNascimento) {
+	public Pets(long id, String nome, String especie, Porte porte, PetsStatus status, Date dateNascimento) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.especie = especie;
 		this.porte = porte;
 		this.status = status;
 		this.dateNascimento = dateNascimento;
@@ -44,6 +47,14 @@ public class Pets {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getEspecie() {
+		return especie;
+	}
+
+	public void setEspecie(String especie) {
+		this.especie = especie;
 	}
 
 	public Porte getPorte() {
