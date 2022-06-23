@@ -182,9 +182,12 @@ public class PetsService {
     }
     
     public PetsDTO statusPets(Long id,PetsDTO status){
+
         Pets pets = petsRepository.findById(id).orElseThrow();
+
         PetsUtil petsUtil = new PetsUtil();
-        PetsDTO idade = new PetsDTO();       
+        PetsDTO idade = new PetsDTO();
+
         pets.setStatus(status.getStatus());
        
         petsRepository.save(pets);
