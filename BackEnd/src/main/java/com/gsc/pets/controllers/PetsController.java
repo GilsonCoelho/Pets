@@ -65,6 +65,10 @@ public class PetsController {
 	public ResponseEntity<PetsDTO> update(@PathVariable Long id, @RequestBody @Valid PetsDTO petsDTO){
 		return ResponseEntity.ok(petsService.update(id, petsDTO));
 	}
+	@PutMapping("/status/{id}")
+	public ResponseEntity<PetsDTO> updateStatus(@PathVariable Long id, @RequestBody @Valid PetsDTO petsDTO){
+		return ResponseEntity.ok(petsService.statusPets(id, petsDTO));
+	}
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Pets> delete(@PathVariable Long id){

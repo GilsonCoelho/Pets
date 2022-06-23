@@ -1,12 +1,14 @@
 package com.gsc.pets.service;
 
 import com.gsc.pets.DTO.PetsDTO;
+import com.gsc.pets.enums.PetsStatus;
 import com.gsc.pets.model.Pets;
 import com.gsc.pets.repository.PetsRepository;
 import com.gsc.pets.utis.PetsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -177,5 +179,28 @@ public class PetsService {
         System.out.println("Sou bonitão");
 
         return pets;
+    }
+    
+    public PetsDTO statusPets(Long id,PetsDTO status){
+        Pets pets = petsRepository.findById(id).orElseThrow();
+        PetsUtil petsUtil = new PetsUtil();
+        PetsDTO idade = new PetsDTO();       
+        pets.setStatus(status.getStatus());
+       
+        petsRepository.save(pets);
+        //exibir no front
+        idade.setId(pets.getId());
+        idade.setNome(pets.getNome());
+        idade.setEspecie(pets.getEspecie());
+        idade.setPorte(pets.getPorte());
+        idade.setStatus(pets.getStatus());
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String data = dateFormat.format(pets.getDateNascimento());
+        idade.setDateNascimento(data);
+        List<Integer> list = petsUtil.calcularIdade(pets.getDateNascimento());
+        idade.setAno(list.get(0));
+        idade.setMes(list.get(1));
+        idade.setDias(list.get(2));
+        return idade;
     }
 }
