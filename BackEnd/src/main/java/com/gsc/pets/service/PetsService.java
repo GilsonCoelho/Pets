@@ -1,7 +1,6 @@
 package com.gsc.pets.service;
 
 import com.gsc.pets.DTO.PetsDTO;
-import com.gsc.pets.enums.PetsStatus;
 import com.gsc.pets.model.Pets;
 import com.gsc.pets.repository.PetsRepository;
 import com.gsc.pets.utis.PetsUtil;
@@ -43,8 +42,6 @@ public class PetsService {
                     itens.getStatus(), data, list.get(0), list.get(1), list.get(2)));
         });
 
-        System.out.println("Sou bonitão");
-
         return petsDTOS;
 
     }
@@ -64,8 +61,6 @@ public class PetsService {
             petsDTOS.add(new PetsDTO(itens.getId(), itens.getNome(), itens.getEspecie(), itens.getPorte(),
                     itens.getStatus(), data, list.get(0), list.get(1), list.get(2)));
         });
-
-        System.out.println("Sou bonitão");
 
         return petsDTOS;
 
@@ -123,8 +118,6 @@ public class PetsService {
         return idade;
 
     }
-
-
     public PetsDTO create(PetsDTO petsDto) {
 
         Pets pets = new Pets();
@@ -175,8 +168,6 @@ public class PetsService {
             String data = format.format(itens.getDateNascimento());
             PetsDTO pets = new PetsDTO(itens.getId(), itens.getNome(), itens.getEspecie(), itens.getPorte(),
                     itens.getStatus(), data, list.get(0), list.get(1), list.get(2));
-
-        System.out.println("Sou bonitão");
 
         return pets;
     }

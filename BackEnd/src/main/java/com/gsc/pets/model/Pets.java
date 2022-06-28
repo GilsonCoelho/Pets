@@ -13,7 +13,7 @@ import com.gsc.pets.enums.PetsStatus;
 import com.gsc.pets.enums.Porte;
 
 @Entity
-@Table(name = "pets")
+@Table(name = "animal")
 public class Pets {
 	
 	@Id

@@ -12,12 +12,12 @@ import java.util.List;
 public interface PetsRepository extends JpaRepository<Pets, Long>{
 
 
-    @Query(value ="SELECT * FROM PETS WHERE status = 0", nativeQuery = true)
+    @Query(value ="SELECT * FROM ANIMAL WHERE status = 0", nativeQuery = true)
     List<Pets> findAllAtivos();
 
 
-
-    @Query(value ="SELECT * FROM PETS WHERE status = 1", nativeQuery = true)
+    @Query(value ="SELECT * FROM ANIMAL WHERE status = 1", nativeQuery = true)
     List<Pets> findAllInativos();
+
     Pets findByNome(String nome);
 }
