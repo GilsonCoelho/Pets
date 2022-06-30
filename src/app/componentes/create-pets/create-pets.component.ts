@@ -26,7 +26,7 @@ export class CreatePetsComponent implements OnInit {
 
   save() {
     this.petsService
-    .createPet(this.pet).subscribe(data => {
+    .createPets(this.pet).subscribe(data => {
       console.log(data)
       this.pet = new Pets();
       this.gotoList();

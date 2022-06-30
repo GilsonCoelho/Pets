@@ -8,39 +8,29 @@ import { Observable } from 'rxjs';
 export class PetsService {
 
   
-  private baseUrl = 'http://localhost:8080/pets';
+  private baseUrl = 'http://localhost:8080/api/v1/pets';
 
   constructor(private http: HttpClient) { }
 
-  getPets(id: number): Observable<any> {
+  getPet(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   // tslint:disable-next-line:ban-types
-  createPets(pets: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/create`, pets);
+  createPet(pet: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, pet);
   }
 
   // tslint:disable-next-line:ban-types
-  updatePets(id: number, value: any): Observable<Object> {
+  updatePet(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  updatePetsStatus(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/status/${id}`, value);
-  }
-
-  deletePets(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/delete/${id}`, value);
+  deletePet(id: number): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
   getPetsList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/list/idade`);
-  }
-  getPetsListAtivos(): Observable<any>{
-    return this.http.get(`${this.baseUrl}/ativos`);
-  }
-  getPetsListInativos(): Observable<any>{
-    return this.http.get(`${this.baseUrl}/inativos`);
+    return this.http.get(`${this.baseUrl}`);
   }
 }

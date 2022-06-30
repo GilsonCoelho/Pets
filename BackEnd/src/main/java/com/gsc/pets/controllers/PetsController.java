@@ -17,7 +17,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/pets")
+@RequestMapping("/api/v1")
 public class PetsController {
 
 	@Autowired
@@ -26,30 +26,30 @@ public class PetsController {
 	PetsRepository petsRepository;
 
 
-	@GetMapping("/list")
+	/*@GetMapping("/pets")
 	public ResponseEntity<List<Pets>> getPets(){
 
 		return ResponseEntity.ok(petsService.findAllPets());
-	}
-	@GetMapping("/{id}")
+	}*/
+	@GetMapping("/pets/{id}")
 	public ResponseEntity<PetsDTO> getPetsById(@PathVariable Long id){
 			return ResponseEntity.ok(petsService.findById(id));
 	}
 
-	@GetMapping("/list/idade")
+	@GetMapping("/pets")
 	public ResponseEntity<List<PetsDTO>> getPetsIdade(){
 
 		return ResponseEntity.ok(petsService.findAllIdade());
 	}
-	@GetMapping("/ativos")
+	@GetMapping("/pets/ativos")
 	public ResponseEntity<List<PetsDTO>> findAllAtivos(){
 		return ResponseEntity.ok(petsService.findAllAtivos());
 	}
-	@GetMapping("/inativos")
+	@GetMapping("/pets/inativos")
 	public ResponseEntity<List<PetsDTO>> findAllInativos(){
 		return ResponseEntity.ok(petsService.findAllInativos());
 	}
-	@PostMapping("/create")
+	@PostMapping("/pets")
 	public ResponseEntity<PetsDTO> create(@RequestBody @Valid PetsDTO petsDto) throws ParseException {
 		List<Pets> lpets = petsRepository.findAll();
 		String nome = petsDto.getNome();
@@ -61,16 +61,16 @@ public class PetsController {
 			return ResponseEntity.status(HttpStatus.CREATED).body(petsService.create(petsDto));
 
 	}
-	@PutMapping("/{id}")
+	@PutMapping("/pets/{id}")
 	public ResponseEntity<PetsDTO> update(@PathVariable Long id, @RequestBody @Valid PetsDTO petsDTO){
 		return ResponseEntity.ok(petsService.update(id, petsDTO));
 	}
-	@PutMapping("/status/{id}")
+	@PutMapping("/pets/status/{id}")
 	public ResponseEntity<PetsDTO> updateStatus(@PathVariable Long id, @RequestBody @Valid PetsDTO petsDTO){
 		return ResponseEntity.ok(petsService.statusPets(id, petsDTO));
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/pets/{id}")
 	public ResponseEntity<Pets> delete(@PathVariable Long id){
 		return ResponseEntity.ok(petsService.delete(id));
 	}

@@ -1,0 +1,18 @@
+<h3>Mudar Staus do Cadastro</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="name">Status de Cadastro</label>
+      <select class="form-control" id="status" required [(ngModel)]="pet.status" name="status">
+          <option>ATIVO</option>
+          <option>INATIVO</option>
+      </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+</div>
+

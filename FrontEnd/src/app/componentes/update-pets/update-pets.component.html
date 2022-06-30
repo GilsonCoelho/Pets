@@ -1,5 +1,5 @@
-<h3>Cadastrar Pets</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<h3>Update Pets</h3>
+<div style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Nome do Pet</label>
@@ -29,11 +29,8 @@
         <option>INATIVO</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-success">Cadastrar</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
+
 </div>
 
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <button class="btn btn-success" (click)="newPets()">Novo Cadastro</button>
-</div>
