@@ -30,6 +30,6 @@ export class PetsDetailsComponent implements OnInit {
   }
 
   list(){
-    this.router.navigate(['pet']);
+    this.router.navigate(['pets']);
   }
 }

@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./pets-list.component.css']
 })
 export class PetsListComponent implements OnInit {
+  
   pets!: Observable<Pets[]>;
+
 
   constructor(private petsService: PetsService,
               private router: Router) {}

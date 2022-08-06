@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Lista de Pets</h2>
+    <h2>Lista de Pets Ativo</h2>
   </div>
   <div class="panel-body">
     <table class="table table-striped">
@@ -21,11 +21,11 @@
           <td>{{pet.especie}}</td>
           <td>{{pet.porte}}</td>
           <td>{{pet.ano}}</td>
-          <td>{pet.status}}</td>
+          <td>{{pet.status}}</td>
 
           <td><button (click)="deletePet(pet.id)" class="btn btn-danger">Status</button>
-              <button (click)="updatePet(pet.id)" class="btn btn-info" style="margin-left: 10px">Atualizar</button>
-              <button (click)="petDetails(pet.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+            <button (click)="updatePet(pet.id)" class="btn btn-info" style="margin-left: 10px">Atualizar</button>
+            <button (click)="petDetails(pet.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
           </td>
         </tr>
       </tbody>

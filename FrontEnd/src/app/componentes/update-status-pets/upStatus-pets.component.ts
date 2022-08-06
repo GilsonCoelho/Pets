@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PetsService } from '../../service/pets.service';
 
 @Component({
-  selector: 'app-update-pets',
-  templateUrl: './update-pets.component.html',
-  styleUrls: ['./update-pets.component.css']
+  selector: 'app-upStatus-pets',
+  templateUrl: './upStatus-pets.component.html',
+  styleUrls: ['./upStatus-pets.component.css']
 })
-export class UpdatePetsComponent implements OnInit {
+export class UpdateStatusComponent implements OnInit {
 
  id!: number;
  pet!: Pets;
@@ -22,15 +22,15 @@ export class UpdatePetsComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
 
-    this.petsService.getPets(this.id)
+    this.petsService.getPet(this.id)
       .subscribe(data => {
         console.log(data)
         this.pet = data;
       }, error => console.log(error));
   }
 
-  updatePets() {
-    this.petsService.updatePets(this.id, this.pet)
+  updateStatus() {
+    this.petsService.updateStatus(this.id, this.pet)
       .subscribe(data => {
         console.log(data);
         this.pet = new Pets();
@@ -39,10 +39,10 @@ export class UpdatePetsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updatePets();
+    this.updateStatus();
   }
 
   gotoList() {
-    this.router.navigate(['pet']);
+    this.router.navigate(['pets']);
   }
 }

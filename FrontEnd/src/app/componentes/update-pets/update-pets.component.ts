@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pets } from '../../model/pet';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PetsService } from '../../service/pets.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-update-pets',
@@ -19,14 +20,16 @@ export class UpdatePetsComponent implements OnInit {
 
   ngOnInit() {
     this.pet = new Pets();
-
+    var date= new FormControl(this.pet.dateNascimento);
+    var serializedDate = new FormControl(new Date().toISOString());
     this.id = this.route.snapshot.params['id'];
 
-    this.petsService.getPets(this.id)
+    this.petsService.getPet(this.id)
       .subscribe(data => {
         console.log(data)
         this.pet = data;
       }, error => console.log(error));
+      
   }
 
   updatePet() {
@@ -36,6 +39,7 @@ export class UpdatePetsComponent implements OnInit {
         this.pet = new Pets();
         this.gotoList();
       }, error => console.log(error));
+      
   }
 
   onSubmit() {
@@ -43,6 +47,6 @@ export class UpdatePetsComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['pet']);
+    this.router.navigate(['pets']);
   }
 }

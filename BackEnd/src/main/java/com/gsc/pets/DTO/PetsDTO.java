@@ -4,6 +4,8 @@ package com.gsc.pets.DTO;
 import com.gsc.pets.enums.PetsStatus;
 import com.gsc.pets.enums.Porte;
 
+import java.util.Date;
+
 public class PetsDTO {
 
     private long id;
@@ -12,7 +14,7 @@ public class PetsDTO {
     private String especie;
     private Porte porte;
     private PetsStatus status;
-    private String dateNascimento;
+    private Date dateNascimento;
 
     private int ano;
     private int mes;
@@ -21,7 +23,7 @@ public class PetsDTO {
     public PetsDTO() {
     }
 
-    public PetsDTO(long id, String nome, String especie, Porte porte, PetsStatus status, String dateNascimento) {
+    public PetsDTO(long id, String nome, String especie, Porte porte, PetsStatus status, Date dateNascimento) {
         this.id = id;
         this.nome = nome;
         this.especie = especie;
@@ -30,7 +32,7 @@ public class PetsDTO {
         this.dateNascimento = dateNascimento;
     }
 
-    public PetsDTO(long id, String nome, String especie, Porte porte, PetsStatus status, String date, Integer ano, Integer mes, Integer dias) {
+    public PetsDTO(long id, String nome, String especie, Porte porte, PetsStatus status, Date date, Integer ano, Integer mes, Integer dias) {
         String text;
         this.id = id;
         this.nome = nome;
@@ -83,11 +85,11 @@ public class PetsDTO {
         this.status = status;
     }
 
-    public String getDateNascimento() {
+    public Date getDateNascimento() {
         return dateNascimento;
     }
 
-    public void setDateNascimento(String dateNascimento) {
+    public void setDateNascimento(Date dateNascimento) {
         this.dateNascimento = dateNascimento;
     }
 

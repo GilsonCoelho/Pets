@@ -25,6 +25,9 @@ export class PetsService {
   updatePet(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
+  updateStatus(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
 
   deletePet(id: number): Observable<Object> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
@@ -32,5 +35,11 @@ export class PetsService {
 
   getPetsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+  getPetsListAtivos(): Observable<any>{
+    return this.http.get(`${this.baseUrl}/ativos`);
+  }
+  getPetsListInativos(): Observable<any>{
+    return this.http.get(`${this.baseUrl}/pets/inativos`);
   }
 }

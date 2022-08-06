@@ -2,39 +2,55 @@
   <div class="panel-heading">
     <h2>Lista de Pets</h2>
   </div>
+  
+  <div class="form-check form-check-inline">
+    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+    <label class="form-check-label" for="radio1">Todos</label>
+  
+  </div>
+  <div class="form-check form-check-inline">
+    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">  
+    <label class="form-check-label" for="radio2">Ativos</label>
+ 
+  </div>
+  <div class="form-check form-check-inline">
+    <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">  
+    <label class="form-check-label" for="radio3">Inativos</label>
+  
+  </div>   
 
-<div class="panel-body">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Nome</th>
-        <th>Espécie</th>
-        <th>Porte</th>
-        <th>Idade</th>
-        <th>Cadastro</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pet of pets | async">
-        <td>{{pet.id}}</td>
-        <td>{{pet.nome}}</td>
-        <td>{{pet.especie}}</td>
-        <td>{{pet.porte}}</td>
-        <td>{{pet.ano}}</td>
-        <td>{{pet.status}}</td>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead style="text-align: center;">
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Espécie</th>
+          <th>Porte</th>
+          <th>Idade</th>
+          <th>Cadastro</th>
+        </tr>
+      </thead>
+      <tbody style="text-align: center;">
+        <tr *ngFor="let pet of pets | async">
+          <td>{{pet.id}}</td>
+          <td>{{pet.nome}}</td>
+          <td>{{pet.especie}}</td>
+          <td>{{pet.porte}}</td>
+          <td>{{pet.ano}} anos {{pet.mes}} meses {{pet.dias}} dias</td>
+          <td>{{pet.status}}</td>
 
-        <td><button (click)="deletePet(pet.id)" class="btn btn-danger">Status</button>
-          <button (click)="updatePet(pet.id)" class="btn btn-info" style="margin-left: 10px">Atualizar</button>
-          <button (click)="getPet(pet.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
-        </td>
+          <td><button (click)="deletePet(pet.id)" class="btn btn-danger">Deletar</button>
+            <button (click)="updatePet(pet.id)" class="btn btn-info" style="margin-left: 10px">Atualizar</button>
+            <button (click)="getPet(pet.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+          </td>
 
-      </tr>
+        </tr>
 
-    </tbody>
+      </tbody>
 
-  </table>
+    </table>
 
-</div>
+  </div>
 
 </div>

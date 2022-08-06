@@ -40,6 +40,6 @@ export class CreatePetsComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['pet']);
+    this.router.navigate(['pets']);
   }
 }
